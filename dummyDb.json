@@ -1,0 +1,20 @@
+{
+    "stocks": [
+        {
+            "name": "Amazon",
+            "symbol": "AMZN",
+            "available_shares": 1450,
+            "currency": "USD",
+            "price_per_share": 10,
+            "last_update": "2022-05-16"
+        },
+        {
+            "name": "Exxon Mobil",
+            "symbol": "XOM",
+            "available_shares": 100,
+            "currency": "GBP",
+            "price_per_share": 25,
+            "last_update": "2022-03-16"
+        }
+    ]
+}
