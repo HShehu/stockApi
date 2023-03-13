@@ -11,19 +11,39 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"msg": "Hello World"}
+    return {"msg": "Helloooo World"}
 
 @app.get("/listStock" , response_model = Stocks)
 def listStock():
 
     return json.load(open("./stocks.json"))
 
-@app.put("/buyStock/{stockId}")
-def buyStock(stockId : int , stock : Stock):
+@app.put("/buyStock")
+def buyStock(stockSym : str , amount : int):
 # find exact stock from file
+    newstock = None
+    stocks = json.load(open("./stocks.json"))
+    for stock in stocks['stocks']:
+        if stock['symbol'] == stockSym:
+            newstock = stock
+            # subtract number of shares
+            if (newstock['availableShares'] - amount) < 0:
+                return
+            newstock['availableShares'] -= amount
+            stock = newstock
+            print(stock)
+            break
+
+    if newstock is None:
+        return
+
+    with open("./stocks.json", "w") as jsonFile:
+        json.dump(stocks, jsonFile,indent=4,sort_keys=True)
+
+
     
-# subtract number of shares
+    
 # update document
+
 # return stock
-            #return stock
     pass

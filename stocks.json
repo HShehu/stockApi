@@ -1,20 +1,20 @@
 {
     "stocks": [
-      {
-        "name": "Exxon Mobil",
-        "symbol": "XOM",
-        "availableShares": 310,
-        "currency": "USD",
-        "price": 12.96,
-        "lastUpdate": "2019-11-04T00:05:23"
-      },
-      {
-        "name": "Amazon",
-        "symbol": "AMZN",
-        "availableShares": 4000,
-        "currency": "GBP",
-        "price": 69.07,
-        "lastUpdate": 55
-      }
+        {
+            "availableShares": 310,
+            "currency": "USD",
+            "lastUpdate": "2019-11-04T00:05:23",
+            "name": "Exxon Mobil",
+            "price": 12.96,
+            "symbol": "XOM"
+        },
+        {
+            "availableShares": 3878,
+            "currency": "GBP",
+            "lastUpdate": 55,
+            "name": "Amazon",
+            "price": 69.07,
+            "symbol": "AMZN"
+        }
     ]
-  }
+}
