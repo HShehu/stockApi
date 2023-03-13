@@ -20,7 +20,7 @@ def listStock():
 
 @app.put("/buyStock")
 def buyStock(stockSym : str , amount : int):
-# find exact stock from file
+    # find exact stock from file
     newstock = None
     stocks = json.load(open("./stocks.json"))
     for stock in stocks['stocks']:
@@ -37,13 +37,14 @@ def buyStock(stockSym : str , amount : int):
     if newstock is None:
         return
 
+    # update document
     with open("./stocks.json", "w") as jsonFile:
         json.dump(stocks, jsonFile,indent=4,sort_keys=True)
 
 
     
     
-# update document
+
 
 # return stock
     pass
