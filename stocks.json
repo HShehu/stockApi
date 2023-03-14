@@ -1,7 +1,7 @@
 {
     "stocks": [
         {
-            "availableShares": 310,
+            "availableShares": 716,
             "currency": "USD",
             "lastUpdate": "2019-11-04T00:05:23",
             "name": "Exxon Mobil",
@@ -9,9 +9,9 @@
             "symbol": "XOM"
         },
         {
-            "availableShares": 3878,
+            "availableShares": 3805,
             "currency": "GBP",
-            "lastUpdate": 55,
+            "lastUpdate": "03/14/2023, 06:58:08",
             "name": "Amazon",
             "price": 69.07,
             "symbol": "AMZN"

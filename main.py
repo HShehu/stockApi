@@ -18,6 +18,23 @@ def listStock():
 
     return json.load(open("./stocks.json"))
 
+
+@app.get("/getStock")
+def getStock(stockSym : str):
+    # find exact stock from file
+    newstock = None
+    stocks = json.load(open("./stocks.json"))
+    for stock in stocks['stocks']:
+        if stock['symbol'] == stockSym:
+            newstock = stock
+            break
+
+    if newstock is None:
+        return
+
+    return newstock
+
+
 @app.put("/buyStock")
 def buyStock(stockSym : str , amount : int):
     # find exact stock from file
@@ -30,6 +47,7 @@ def buyStock(stockSym : str , amount : int):
             if (newstock['availableShares'] - amount) < 0:
                 return
             newstock['availableShares'] -= amount
+            newstock['lastUpdate'] = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
             stock = newstock
             print(stock)
             break
@@ -42,9 +60,24 @@ def buyStock(stockSym : str , amount : int):
         json.dump(stocks, jsonFile,indent=4,sort_keys=True)
 
 
-    
-    
+@app.put("/sellStock")
+def sellStock(stockSym : str , amount : int):
+    # find exact stock from file
+    newstock = None
+    stocks = json.load(open("./stocks.json"))
+    for stock in stocks['stocks']:
+        if stock['symbol'] == stockSym:
+            newstock = stock
+            # add to number of shares
+            newstock['availableShares'] += amount
+            newstock['lastUpdate'] = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
+            stock = newstock
+            print(stock)
+            break
 
+    if newstock is None:
+        return
 
-# return stock
-    pass
+    # update document
+    with open("./stocks.json", "w") as jsonFile:
+        json.dump(stocks, jsonFile,indent=4,sort_keys=True)
