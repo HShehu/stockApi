@@ -1,9 +1,9 @@
 {
     "stocks": [
         {
-            "availableShares": 716,
+            "availableShares": 710,
             "currency": "USD",
-            "lastUpdate": "2019-11-04T00:05:23",
+            "lastUpdate": "03/14/2023, 07:03:09",
             "name": "Exxon Mobil",
             "price": 12.96,
             "symbol": "XOM"

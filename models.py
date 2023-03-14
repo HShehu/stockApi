@@ -7,7 +7,7 @@ class Stock(BaseModel):
     availableShares : int
     currency : str
     price : float
-    lastUpdate : datetime
+    lastUpdate : str
 
 class Stocks(BaseModel):
     stocks : list[Stock]
